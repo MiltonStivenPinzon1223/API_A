@@ -1,17 +1,19 @@
 <?php
 
+require_once "controller/DogController.php";
+require_once "controller/PaymentMethodController.php";
+require_once "controller/ServiceController.php";
+require_once "controller/SolicitudController.php";
+require_once "controller/StatuController.php";
 require_once "controller/UserController.php";
-require_once "controller/TypeVehicleController.php";
-require_once "controller/ModelController.php";
-require_once "controller/VehicleController.php";
-require_once "controller/RegistrationController.php";
 require_once "controller/routesController.php";
 require_once "controller/LoginController.php";
+require_once "model/DogModel.php";
+require_once "model/PaymentMethodModel.php";
+require_once "model/ServiceModel.php";
+require_once "model/SolicitudModel.php";
+require_once "model/StatuModel.php";
 require_once "model/UserModel.php";
-require_once "model/TypeVehicleModel.php";
-require_once "model/ModelModel.php";
-require_once "model/VehicleModel.php";
-require_once "model/RegistrationModel.php";
 
 header('Access-Control-Allow-Headers: Content-Type');
 header('Access-Control-Allow-Origin: *');

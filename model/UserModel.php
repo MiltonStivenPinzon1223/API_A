@@ -16,7 +16,7 @@ class UserModel{
         if($cantMail==0){
             $date = date("Y-m-d");
             $status = "1";
-            $query = "INSERT INTO `users`(`use_name`, `use_email`, `use_password`, `use_datecreate`, `use_key`, `use_identifier`, `use_status`, `rol_id`) VALUES ('".$data['use_name']."','".$data['use_email']."','".$data['use_password']."','".$date."','".$data['use_key']."','".$data['use_identifier']."','".$status."', '2')";
+            $query = "INSERT INTO `users`(`use_name`, `use_email`, `use_password`, `use_datecreate`, `use_key`, `use_identifier`, `use_status`, `rol_id`) VALUES ('".$data['use_name']."','".$data['use_email']."','".$data['use_password']."','".$date."','".$data['use_key']."','".$data['use_identifier']."','".$status."', '".$data['rol_id']."')";
             // return $query;
             $statement = Connection::connection()->prepare($query);
             $message = $statement-> execute() ? array("ok") : Connection::connection()->errorInfo();

@@ -2,7 +2,7 @@
 
 //Detecta nuestra url
 $rutasArray = explode("/",$_SERVER['REQUEST_URI']);
-$inputs = array(); 
+$inputs = array();
 //Raw input for requets
 $inputs['raw_input'] = @file_get_contents('php://input');
 $_POST = json_decode($inputs['raw_input'], true);
@@ -46,17 +46,17 @@ if(count(array_filter($rutasArray))<2){
                 return;
             }
             break;
-        case 'type_vehicles':
+        case 'dogs':
             switch ($method) {
                 case 'GET':
-                    $type = new TypeVehicleController($method, $complement, 0);
+                    $dog = new DogController($method, $complement, 0);
 
                 break;
                 case 'POST':
-                    $type = new TypeVehicleController($method, $complement, $_POST);
+                    $dog = new DogController($method, $complement, $_POST);
                 break;
                 case 'PUT':
-                    $type = new TypeVehicleController($method, $complement, $_POST);
+                    $dog = new DogController($method, $complement, $_POST);
                 break;
                 default:
                     $json = array(
@@ -66,19 +66,16 @@ if(count(array_filter($rutasArray))<2){
                     return;
                 break;
             }
-            $type->index();
+            $dog->index();
         break;
-        case 'models':
+        case 'services':
             switch ($method) {
                 case 'GET':
-                    $model = new ModelController($method, $complement, 0);
+                    $service = new serviceController($method, $complement, 0);
 
                 break;
                 case 'POST':
-                    $model = new ModelController($method, $complement, $_POST);
-                break;
-                case 'PUT':
-                    $model = new ModelController($method, $complement, $_POST);
+                    $service = new serviceController($method, $complement, $_POST);
                 break;
                 default:
                     $json = array(
@@ -88,19 +85,16 @@ if(count(array_filter($rutasArray))<2){
                     return;
                 break;
             }
-            $model->index();
+            $service->index();
         break;
-        case 'vehicles':
+        case 'solicitudes':
             switch ($method) {
                 case 'GET':
-                    $vehicle = new VehicleController($method, $complement, 0);
+                    $solicitud = new SolicitudController($method, $complement, 0);
 
                 break;
                 case 'POST':
-                    $vehicle = new VehicleController($method, $complement, $_POST);
-                break;
-                case 'PUT':
-                    $vehicle = new VehicleController($method, $complement, $_POST);
+                    $solicitud = new SolicitudController($method, $complement, $_POST);
                 break;
                 default:
                     $json = array(
@@ -110,16 +104,16 @@ if(count(array_filter($rutasArray))<2){
                     return;
                 break;
             }
-            $vehicle->index();
+            $solicitud->index();
         break;
-        case 'registrations':
+        case 'status':
             switch ($method) {
                 case 'GET':
-                    $registration = new RegistrationController($method, $complement, 0);
+                    $statu = new StatuController($method, $complement, 0);
 
                 break;
                 case 'POST':
-                    $registration = new RegistrationController($method, $complement, $_POST);
+                    $statu = new StatuController($method, $complement, $_POST);
                 break;
                 default:
                     $json = array(
@@ -129,7 +123,7 @@ if(count(array_filter($rutasArray))<2){
                     return;
                 break;
             }
-            $registration->index();
+            $statu->index();
         break;
         default:
             $json = array(
