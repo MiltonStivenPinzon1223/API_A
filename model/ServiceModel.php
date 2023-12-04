@@ -5,7 +5,7 @@ require_once "ConDB.php";
 class ServiceModel {
 
     public static function all(){
-        $query = "SELECT * FROM services";
+        $query = "SELECT solicitudes.*, dogs.dog_name, (SELECT breeds.bre_breed FROM `dogs` INNER JOIN breeds ON breeds.bre_id = dogs.bre_id WHERE dogs.dog_id =solicitudes.dog_id) as breed, status.sta_status, payment_method.pame_method, (SELECT users.use_name from users INNER JOIN users ON users.use_id = services.use_id) FROM `solicitudes` INNER JOIN dogs ON dogs.dog_id = solicitudes.dog_id INNER JOIN status ON status.sta_id = solicitudes.sta_id INNER JOIN payment_method ON payment_method.pame_id = solicitudes.pame_id";
         $statement = Connection::connection()->prepare($query);
         $statement->execute();
         $services = $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -25,14 +25,6 @@ class ServiceModel {
         $statement = Connection::connection()->prepare($query);
         $statement->execute();
         $message = array("service created successfully");
-        return $message;
-    }
-
-    public static function update($id,$data){
-        $query = "UPDATE `services` SET `pame_service`='".$data['pame_service']."' WHERE pame_id = $id";
-        $statement = Connection::connection()->prepare($query);
-        $statement->execute();
-        $message = array("service updated successfully");
         return $message;
     }
 }

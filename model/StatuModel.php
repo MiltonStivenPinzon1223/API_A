@@ -19,21 +19,5 @@ class StatuModel {
         $statu = $statement->fetchAll(PDO::FETCH_ASSOC);
         return $statu;
     }
-
-    public static function create($data){
-        $query = "INSERT INTO `status`(`pame_statu`) VALUES ('".$data['pame_statu']."')";
-        $statement = Connection::connection()->prepare($query);
-        $statement->execute();
-        $message = array("statu created successfully");
-        return $message;
-    }
-
-    public static function update($id,$data){
-        $query = "UPDATE `status` SET `pame_statu`='".$data['pame_statu']."' WHERE pame_id = $id";
-        $statement = Connection::connection()->prepare($query);
-        $statement->execute();
-        $message = array("statu updated successfully");
-        return $message;
-    }
 }
 ?>

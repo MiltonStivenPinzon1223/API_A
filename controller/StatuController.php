@@ -29,20 +29,7 @@ class StatuController{
                         echo json_encode($json);
                         return;
                 }
-            case "POST":
-                $createStatu = StatuModel::create($this->_data);
-                $json = array(
-                    "response: "=>$createStatu
-                );
-                echo json_encode($json,true);
-                return;
-            case "PUT":
-                $createStatu = StatuModel::update($this->_complement,$this->_data);
-                $json = array(
-                    "response: "=>$createStatu
-                );
-                echo json_encode($json,true);
-                return;
+                break;
             default:
                 $json = array(
                     "ruta: "=>"not found"

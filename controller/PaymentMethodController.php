@@ -29,20 +29,6 @@ class PaymentMethodController{
                         echo json_encode($json);
                         return;
                 }
-            case "POST":
-                $createPaymentMethod = PaymentMethodModel::create($this->_data);
-                $json = array(
-                    "response: "=>$createPaymentMethod
-                );
-                echo json_encode($json,true);
-                return;
-            case "PUT":
-                $createPaymentMethod = PaymentMethodModel::update($this->_complement,$this->_data);
-                $json = array(
-                    "response: "=>$createPaymentMethod
-                );
-                echo json_encode($json,true);
-                return;
             default:
                 $json = array(
                     "ruta: "=>"not found"

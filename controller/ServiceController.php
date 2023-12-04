@@ -36,13 +36,6 @@ class ServiceController{
                 );
                 echo json_encode($json,true);
                 return;
-            case "PUT":
-                $createService = ServiceModel::update($this->_complement,$this->_data);
-                $json = array(
-                    "response: "=>$createService
-                );
-                echo json_encode($json,true);
-                return;
             default:
                 $json = array(
                     "ruta: "=>"not found"

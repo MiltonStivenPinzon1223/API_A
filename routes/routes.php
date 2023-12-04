@@ -68,6 +68,15 @@ if(count(array_filter($rutasArray))<2){
             }
             $dog->index();
         break;
+        case 'payment_methods':
+            switch ($method) {
+                case 'GET':
+                    $dog = new PaymentMethodController($method, $complement, 0);
+
+                break;
+            }
+            $dog->index();
+        break;
         case 'services':
             switch ($method) {
                 case 'GET':
@@ -94,6 +103,9 @@ if(count(array_filter($rutasArray))<2){
 
                 break;
                 case 'POST':
+                    $solicitud = new SolicitudController($method, $complement, $_POST);
+                break;
+                case 'PUT':
                     $solicitud = new SolicitudController($method, $complement, $_POST);
                 break;
                 default:

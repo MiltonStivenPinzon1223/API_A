@@ -19,21 +19,5 @@ class PaymentMethodModel {
         $method = $statement->fetchAll(PDO::FETCH_ASSOC);
         return $method;
     }
-
-    public static function create($data){
-        $query = "INSERT INTO `payment_method`(`pame_method`) VALUES ('".$data['pame_method']."')";
-        $statement = Connection::connection()->prepare($query);
-        $statement->execute();
-        $message = array("method created successfully");
-        return $message;
-    }
-
-    public static function update($id,$data){
-        $query = "UPDATE `payment_method` SET `pame_method`='".$data['pame_method']."' WHERE pame_id = $id";
-        $statement = Connection::connection()->prepare($query);
-        $statement->execute();
-        $message = array("method updated successfully");
-        return $message;
-    }
 }
 ?>

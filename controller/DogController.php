@@ -23,7 +23,7 @@ class DogController{
                     default:
                         $dog = DogModel::find($this->_complement);
                         if ($dog==null)
-                            $json = array("response: "=>"Payment method not found");
+                            $json = array("response: "=>"Dog not found");
                         else
                             $json = $dog;
                         echo json_encode($json);
