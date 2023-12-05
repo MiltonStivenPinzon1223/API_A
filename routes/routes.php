@@ -22,7 +22,6 @@ if(count(array_filter($rutasArray))<2){
     $add = (array_key_exists(4,$rutasArray))? ($rutasArray)[4]:"";
     if($add !="") $complement .= "/".$add;
     $method = $_SERVER['REQUEST_METHOD'];
-    print_r($endPoint);
     switch ($endPoint){
         case 'users':
             if (isset($_POST) && $method == 'POST'){
